@@ -16,7 +16,7 @@ namespace Laba4
 
 
 
-            int choic;
+            int choice;
             do
             {
                 Console.WriteLine("============================================");
