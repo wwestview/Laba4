@@ -16,12 +16,12 @@ namespace Laba4
 
 
 
-            int choice;
+            int choic;
             do
             {
                 Console.WriteLine("============================================");
                 Console.WriteLine("Для виконання завдань Колачка  введіть 1");
-                Console.WriteLine("Enter your name");
+                Console.WriteLine("Для виконання завдань Харченка  введіть 2");
                 Console.WriteLine("Для виходу з програми введіть 0");
                 Console.WriteLine("============================================");
                 choice = int.Parse(Console.ReadLine());
@@ -34,7 +34,12 @@ namespace Laba4
                         Kolachko.TupM();
                         Console.WriteLine("=============================");
                         break;
-                     //add your code....
+                    case 2:
+                        Console.WriteLine("-------------------------");
+                        Console.WriteLine("Виконую варіант Харченка");
+                        Console.WriteLine("-------------------------");
+                        Kharchenko.TupM();
+                        break;
                     case 0:
                         Console.WriteLine("Зараз завершимо, тільки натисніть будь ласка ще раз Enter");
                         Console.ReadLine();
