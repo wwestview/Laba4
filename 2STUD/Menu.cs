@@ -13,8 +13,8 @@ namespace Laba4
 
         public static void Main(string[] args)
         {
-
-
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
 
             int choice;
             do
