@@ -1,6 +1,4 @@
 ﻿using System.Text;
-using static Laba4Students.Kolachko;
-using static Laba4Students.Kharchenko;
 
 namespace Laba4Students
 {
@@ -31,23 +29,37 @@ namespace Laba4Students
             return students;
         }
 
-        static void RunMenu(List<Student> studs)
+        public static void RunMenu(List<Student> students)
         {
-            RunMenu11(studs.ToArray());
-        }
-
-        static void RunMenu11(Student[] students)
-        {
-            foreach (var student in students)
+            List<string> avgMark = GetStudentsWithNecessaryMark(students);
+            Console.WriteLine("студенти, що мають середній бал, більший ніж 4,5: ");
+            foreach (string st in avgMark)
             {
-                double avgMark = ((student.mathematicsMark + student.physicsMark + student.informaticsMark) / 3.0);
-                if (avgMark > 4.5)
-                {
-                    Console.WriteLine($"{student.surName} {student.firstName} {student.patronymic}: {student.physicsMark}");
-                }
+                Console.WriteLine(st);
             }
         }
+        public static List<string> GetStudentsWithNecessaryMark(List<Student> students)
+        {
 
+            List<string> avgMark = new List<string>();
+             foreach (Student student in students)
+             {
+                double averageMark = GetAvgMark(student);
+                 if (averageMark > 4.5)
+                 {
+                     avgMark.Add($"{student.surName} " +
+                                 $"{student.firstName} " +
+                                 $"{student.patronymic} " +
+                                 $"{student.physicsMark.ToString()}");
+
+                 }
+             }
+             return avgMark;
+        }
+        public static double GetAvgMark(Student student)
+        {
+            return (student.physicsMark - '0' + student.informaticsMark -'0' + student.mathematicsMark - '0') / 3.0;
+        }
         public static void TupM()
         {
             StreamReader sr = new StreamReader("input.txt");
@@ -58,7 +70,8 @@ namespace Laba4Students
         }
     }
 
-    struct Student
+
+    public struct Student
     {
         public string surName;
         public string firstName;
@@ -83,7 +96,9 @@ namespace Laba4Students
             informaticsMark = data[7][0];
             scholarship = int.Parse(data[8]);
         }
+
     }
+
 
 
     public static class Kharchenko
@@ -116,7 +131,6 @@ namespace Laba4Students
         {
             StreamReader sr = new StreamReader("1nput.txt");
             List<Student> students = ReadData(sr);
-
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             RunMenu(students);
@@ -150,6 +164,7 @@ namespace Laba4Students
                 Console.WriteLine(st);
             }
         }
-    }
-}
 
+    }
+
+}
