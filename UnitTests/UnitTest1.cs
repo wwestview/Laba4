@@ -8,28 +8,44 @@ namespace UnitTestForTwoStudents
         public void Student_Constructor_AvgMark()
         {
             List<Student> students = new();
-            students.Add(new("Іванов Петро Іванович M 01.01.2000 0 0 0 3000"));
-            students.Add(new("Петрова Олена Сергіївна F 15.05.1999 5 5 5 2500"));
-            students.Add(new("Сидоренко Василь Олександрович M 20.11.2001 5 5 5 2000"));
-            students.Add(new("Коваленко Анна Михайлівна F 10.09.2000 5 5 5 3500"));
-            students.Add(new("Бондаренко Іван Володимирович M 05.03.2002 5 5 5 1500"));
-            students.Add(new("Семенова Марія Петрівна F 20.08.2000 5 5 5 1800"));
-            students.Add(new("Кузьменко В'ячеслав Петрович m 20.09.1999 5 5 5 3000"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ M 01.01.2000 0 0 0 3000"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅгіїпїЅпїЅпїЅ F 15.05.1999 5 5 5 2500"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ M 20.11.2001 5 5 5 2000"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ F 10.09.2000 5 5 5 3500"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ M 05.03.2002 5 5 5 1500"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ F 20.08.2000 5 5 5 1800"));
+            students.Add(new("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ m 20.09.1999 5 5 5 3000"));
             int count = 0;
-            foreach (Student student in students) 
+            foreach (Student student in students)
             {
-                if (Kolachko.GetAvgMark(student)>4.5)
+                if (Kolachko.GetAvgMark(student) > 4.5)
                 {
                     count++;
                 }
-                
+
             }
             Assert.Equal(6, count);
         }
         [Fact]
         public void Student_Constructor_Absent()
         {
-            //Enter your code...
+            List<Student> students = new();
+            students.Add(new("Р†РІР°РЅРѕРІ РџРµС‚СЂРѕ РћР»РµРєСЃР°РЅРґСЂРѕРІРёС‡ Рњ 15.03.2000 5 4 3 2500"));
+            students.Add(new("РџРµС‚СЂРѕРІР° РњР°СЂС–СЏ Р†РІР°РЅС–РІРЅР° F 20.06.2001 - 5 4 3000"));
+            students.Add(new("РЎРёРґРѕСЂРµРЅРєРѕ РћР»РµРі Р’РѕР»РѕРґРёРјРёСЂРѕРІРёС‡ Рњ 10.11.1999 4 2 - 1500"));
+            students.Add(new("РљРѕРІР°Р»РµРЅРєРѕ РћРєСЃР°РЅР° РЎРµСЂРіС–С—РІРЅР° F 05.09.2000 3 - - 0"));
+            students.Add(new("Р—Р°Р№С†РµРІ Р”РјРёС‚СЂРѕ РњРёРєРѕР»Р°Р№РѕРІРёС‡ Рњ 12.08.2000 - - - 0"));
+            students.Add(new("Р‘РѕР№РєРѕ Р®Р»С–СЏ РћР»РµРіС–РІРЅР° F 30.04.2001 5 4 5 4000"));
+            students.Add(new("Р†РІР°РЅРѕРІ Р’'СЏС‡РµСЃР»Р°РІ РћР»РµРіРѕРІРёС‡ m 12.04.2004 - - - 0"));
+            int count = 0;
+            foreach (Student student in students)
+            {
+                if (Kharchenko.GetMissedExams(student) > 1)
+                {
+                    count++;
+                }
+            }
+            Assert.Equal(3, count);
         }
     }
 }
