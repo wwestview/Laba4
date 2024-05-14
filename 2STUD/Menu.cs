@@ -16,6 +16,10 @@ namespace Laba4
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
 
+
+
+
+
             int choice;
             do
             {
@@ -24,7 +28,7 @@ namespace Laba4
                 Console.WriteLine("Для виконання завдань Харченка  введіть 2");
                 Console.WriteLine("Для виходу з програми введіть 0");
                 Console.WriteLine("============================================");
-               choice = int.Parse(Console.ReadLine());
+                choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
